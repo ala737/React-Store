@@ -19,3 +19,16 @@
   flex: 1;
   overflow-y: auto;
 }
+
+.itemCard{
+  margin: 8px;
+}
+.itemCardBadg{
+  font-size: 1.2rem;
+  margin: 8px;
+}
+.itemCardImage{
+  height: 150px !important;
+  object-fit: scale-down;
+}
+
