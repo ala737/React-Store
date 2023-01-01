@@ -7,8 +7,12 @@
 
 .AppHeader{
   height: 60px;
+  padding: 1rem 2.5rem;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .AppFooter{
   height: 60px;
   background-color: black;

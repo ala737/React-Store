@@ -1,20 +1,33 @@
-import { Card, List,Image, Typography, Badge, Rate, Button, message } from 'antd';
+import { Card, List,Image, Typography, Badge, Rate, Button, message,Spin } from 'antd';
 import Item from 'antd/es/list/Item';
 import React, { useEffect,useState } from 'react'
 import { getAllProducts } from '../API/Api'
 import { AddToCart } from '../API/Api';
 import '../../App.css'
+import { useParams } from 'react-router-dom';
+import { getProductByCategory } from '../API/Api';
 
 function Products() {
+    const [loading,setLoading] = useState(false)
+    const param = useParams()
     const [items,setItems] = useState([]);
 
     useEffect(() => {
-        getAllProducts().then((res) => {
+        setLoading(true);
+        (param.categoryId ? 
+            getProductByCategory(param.categoryId) : 
+            getAllProducts()).then((res) => {
           
             setItems(res.products)
+            setLoading(false);
         });
 
-    }, []);
+    }, [param]);
+
+    if (loading){
+        return <Spin spinning/>
+    }
+
     return <div>
       
         <List

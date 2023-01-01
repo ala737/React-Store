@@ -1,6 +1,8 @@
 import React from 'react'
 import { Menu } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import Typography from 'antd/es/typography/Typography';
+import ShoppingCartOutLined from 'antd/es/typography/Typography';
 
 
 function Header() {
@@ -15,7 +17,8 @@ function Header() {
       <div className="AppHeader">
         <Menu
         onClick={onMenuClick}
-        mode='horizontal'
+        mode="horizontal" breakpoint="md"
+        
          items={[
             {
                 label :"Home",
@@ -27,7 +30,7 @@ function Header() {
                 children: [
                     {
                         label : "Shirts",
-                        key : "men-shirts"
+                        key : "mens-shirts"
                     },
                     {
                         label : "Shoes",
@@ -70,9 +73,13 @@ function Header() {
                 key : "fragrances"
             },
         ]} />
+
+      <ShoppingCartOutLined />
+
+       
       </div>
    
-  )
+  );
 }
 
 export default Header
